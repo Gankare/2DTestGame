@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using TMPro;
@@ -5,8 +6,7 @@ using TMPro;
 [RequireComponent(typeof(TMP_Text))]
 public class AutoTypewriterTMP : MonoBehaviour
 {
-    [Header("Typing Settings")]
-    public float charsPerSecond = 10f;
+    public float charsPerSecond = 40f;
     public float punctuationPauseMultiplier = 4f;
     public bool useUnscaledTime = false;
     public KeyCode skipKey = KeyCode.Space;
@@ -14,6 +14,8 @@ public class AutoTypewriterTMP : MonoBehaviour
     TMP_Text label;
     string lastText = "";
     Coroutine typingRoutine;
+
+    public event Action OnTypingComplete; // <-- New event
 
     void Awake()
     {
@@ -24,9 +26,8 @@ public class AutoTypewriterTMP : MonoBehaviour
 
     void Update()
     {
-        if (label.text != lastText && label.text != null)
+        if (label.text != lastText)
         {
-            // Text has changed externally
             lastText = label.text;
             StartTyping(lastText);
         }
@@ -53,6 +54,7 @@ public class AutoTypewriterTMP : MonoBehaviour
 
         label.ForceMeshUpdate();
         label.maxVisibleCharacters = label.textInfo.characterCount;
+        OnTypingComplete?.Invoke(); // Trigger event instantly
     }
 
     IEnumerator TypeRoutine(string fullText)
@@ -65,6 +67,7 @@ public class AutoTypewriterTMP : MonoBehaviour
         {
             label.maxVisibleCharacters = totalChars;
             typingRoutine = null;
+            OnTypingComplete?.Invoke();
             yield break;
         }
 
@@ -97,6 +100,7 @@ public class AutoTypewriterTMP : MonoBehaviour
         }
 
         typingRoutine = null;
+        OnTypingComplete?.Invoke(); // <-- Event fires when finished
     }
 
     static bool IsPunctuation(char c)
