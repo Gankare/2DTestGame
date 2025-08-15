@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37bac30f0a3b3e442be652c8ffc2b4a0
+guid: 85cb44dc8e9e9534e90d2fca3c116729
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 185942486807702663
-    second: the-last-of-us-photo-54e226ce29880_0
+      213: 7900582178537081192
+    second: Room 2d game background_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: the-last-of-us-photo-54e226ce29880_0
+      name: Room 2d game background_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 650
-        height: 432
+        width: 736
+        height: 552
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 78c63d2e4b9949200800000000000000
-      internalID: 185942486807702663
+      spriteID: 8690c7ed1a184ad60800000000000000
+      internalID: 7900582178537081192
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      the-last-of-us-photo-54e226ce29880_0: 185942486807702663
+      Room 2d game background_0: 7900582178537081192
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
